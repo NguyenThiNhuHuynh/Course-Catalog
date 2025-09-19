@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "@/contexts/ThemeProvider";
-import Image from "next/image";
+import { Icon } from "@iconify/react";
 
 const ThemeSwitcher = () => {
   const { mode, setMode } = useTheme();
@@ -9,12 +9,22 @@ const ThemeSwitcher = () => {
     <button
       onClick={() => setMode(mode === "light" ? "dark" : "light")}
       className="p-2 rounded-full"
-      aria-label="Toggle Theme"
+      aria-label="Toggle Theme "
     >
       {mode === "light" ? (
-        <Image src="/assets/icons/sun.svg" alt="sun" width={20} height={20} />
+        <Icon
+          icon="tabler:sun"
+          width="24"
+          height="24"
+          className="text-icon-gradient"
+        />
       ) : (
-        <Image src="/assets/icons/moon.svg" alt="moon" width={20} height={20} />
+        <Icon
+          icon="mynaui:moon"
+          width="24"
+          height="24"
+          className="text-icon-gradient"
+        />
       )}
     </button>
   );

@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/contexts/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Course Catalog",
-  description: "Social Network",
+  description: "Course Catalog",
   icons: {
     icon: "/public//assets/images/site-logo.svg",
   },
