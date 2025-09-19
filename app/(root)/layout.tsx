@@ -11,8 +11,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <div
         className={clsx(
-          "flex-1 flex flex-col overflow-y-auto transition-[padding] duration-300",
-          "pt-16"
+          "flex-1 flex flex-col overflow-y-auto transition-[padding] duration-300 background-light100_dark100",
+          "pt-[72px]"
         )}
       >
         <section className="flex-1 flex flex-col">

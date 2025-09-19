@@ -1,3 +1,4 @@
+// data/courses.ts
 export interface Course {
   id: number;
   title: string;
@@ -5,6 +6,7 @@ export interface Course {
   level: string;
   duration: string;
   category: string;
+  image: string;
 }
 
 export const courses: Course[] = [
@@ -15,6 +17,7 @@ export const courses: Course[] = [
     level: "Beginner",
     duration: "4 weeks",
     category: "Web Development",
+    image: "/images/nextjs.png",
   },
   {
     id: 2,
@@ -23,6 +26,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     duration: "6 weeks",
     category: "Frontend",
+    image: "/images/react.png",
   },
   {
     id: 3,
@@ -31,5 +35,6 @@ export const courses: Course[] = [
     level: "All Levels",
     duration: "5 weeks",
     category: "Programming",
+    image: "/images/typescript.png",
   },
 ];

@@ -12,19 +12,9 @@ const ThemeSwitcher = () => {
       aria-label="Toggle Theme "
     >
       {mode === "light" ? (
-        <Icon
-          icon="tabler:sun"
-          width="24"
-          height="24"
-          className="text-icon-gradient"
-        />
+        <Icon icon="tabler:sun" width="24" height="24" className="text-glow" />
       ) : (
-        <Icon
-          icon="mynaui:moon"
-          width="24"
-          height="24"
-          className="text-icon-gradient"
-        />
+        <Icon icon="mynaui:moon" width="24" height="24" className="text-glow" />
       )}
     </button>
   );

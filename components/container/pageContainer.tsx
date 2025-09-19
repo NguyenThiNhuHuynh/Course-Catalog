@@ -13,7 +13,12 @@ export default function PageContainer({
   className,
 }: PageContainerProps) {
   return (
-    <div className={clsx("max-w-screen-lg flex flex-col gap-5", className)}>
+    <div
+      className={clsx(
+        "w-full py-5 background-light100_dark100 justify-between items-center flex flex-col gap-5",
+        className
+      )}
+    >
       {children}
     </div>
   );
