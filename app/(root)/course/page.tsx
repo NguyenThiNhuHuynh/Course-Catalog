@@ -1,43 +1,60 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { courses } from "@/data/courses";
-import { Button } from "@/components/ui/button";
 import CourseCard from "@/components/card/CourseCard";
 import PageContainer from "@/components/container/pageContainer";
+import CourseFilter from "@/components/filter/CourseFilter";
 
 export default function Page() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const categories = [...new Set(courses.map((c) => c.category))];
+  const levels = ["Beginner", "Intermediate", "Advance"];
 
-  const categories = ["All", ...new Set(courses.map((c) => c.category))];
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+  const [keyword, setKeyword] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState(courses);
 
-  const filteredCourses =
-    selectedCategory === "All"
-      ? courses
-      : courses.filter((c) => c.category === selectedCategory);
+  useEffect(() => {
+    let result = courses;
+
+    if (selectedCategories.length > 0) {
+      result = result.filter((c) => selectedCategories.includes(c.category));
+    }
+
+    if (selectedLevels.length > 0) {
+      result = result.filter((c) => selectedLevels.includes(c.level));
+    }
+
+    if (keyword) {
+      result = result.filter((c) =>
+        c.title.toLowerCase().includes(keyword.toLowerCase())
+      );
+    }
+
+    setFilteredCourses(result);
+  }, [selectedCategories, selectedLevels, keyword]);
 
   return (
     <PageContainer>
-      <h1 className="text-[36px] text-blow font-medium jost text-glow">
+      <h1 className="text-[36px] text-blow font-medium jost text-gradient">
         Available Courses
       </h1>
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground px-4">
         Browse through our curated list of courses and start learning today!
       </p>
 
-      <div className="flex flex-wrap justify-center gap-3">
-        {categories.map((cat) => (
-          <Button
-            key={cat}
-            variant={selectedCategory === cat ? "default" : "secondary"}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </Button>
-        ))}
-      </div>
+      <CourseFilter
+        categories={categories}
+        levels={levels}
+        selectedCategories={selectedCategories}
+        selectedLevels={selectedLevels}
+        onFilterCategory={setSelectedCategories}
+        onFilterLevel={setSelectedLevels}
+        onSearch={setKeyword}
+      />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full px-4 md:px-0 md:w-[90%] lg:w-[80%]">
         {filteredCourses.map((course) => (
           <CourseCard key={course.id} course={course} />
         ))}

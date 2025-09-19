@@ -20,7 +20,7 @@ interface Props {
 
 export default function CourseCard({ course }: Props) {
   return (
-    <Card className="w-full border border-light100_dark100 bg-transparent rounded-4 shadow-sm hover:shadow-md transition-shadow">
+    <Card className="w-full border border-light400_dark500 bg-transparent rounded-4 shadow-sm hover:shadow-md transition-shadow">
       <CardHeader className="flex flex-col items-center gap-3">
         <div className="flex flex-row w-full items-center justify-between rounded-md">
           <Image
