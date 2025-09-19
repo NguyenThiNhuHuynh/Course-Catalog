@@ -12,11 +12,12 @@ type SearchBarProps = {
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   className?: string;
+  inputClassName?: string;
 };
 
 const sizeClasses = {
   sm: "h-8 text-sm px-3",
-  md: "h-10 text-base px-4",
+  md: "h-10 text-[14px] px-4",
   lg: "h-12 text-lg px-5",
 };
 
@@ -28,8 +29,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
   size = "md",
   disabled = false,
   className,
+  inputClassName,
 }) => {
   const [internalValue, setInternalValue] = useState("");
+
+  const inputValue = value ?? internalValue;
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -39,21 +43,21 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      onSearch?.(value ?? internalValue);
+      onSearch?.(inputValue);
     }
   };
 
   const triggerSearch = () => {
-    onSearch?.(value ?? internalValue);
+    onSearch?.(inputValue);
   };
 
   return (
     <div
       className={clsx(
-        "flex items-center rounded-full border border-[#f5f5f580] transition-all", // ✅ chỉnh màu border
+        "flex items-center rounded-full border transition-all",
         disabled
           ? "opacity-50 cursor-not-allowed"
-          : "focus-within:ring-2 focus-within:ring-primary100",
+          : "focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-300",
         sizeClasses[size],
         className
       )}
@@ -61,12 +65,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
       <input
         type="text"
         placeholder={placeholder}
-        value={value ?? internalValue}
+        value={inputValue}
         onChange={handleInput}
         onKeyDown={handleKeyDown}
         disabled={disabled}
         className={clsx(
-          "flex-1 bg-transparent outline-none placeholder-[#F5F5F580] font-light text-[#F5F5F580]"
+          "flex-1 bg-transparent outline-none font-light",
+          inputClassName
         )}
       />
       <button
@@ -79,7 +84,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           icon="lets-icons:search-light"
           width="20"
           height="20"
-          className="text-[#F5F5F580]"
+          className={inputClassName}
         />
       </button>
     </div>
