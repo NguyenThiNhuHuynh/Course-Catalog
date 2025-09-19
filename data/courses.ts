@@ -37,4 +37,33 @@ export const courses: Course[] = [
     category: "Programming",
     image: "/images/typescript.png",
   },
+  {
+    id: 4,
+    title: "Node.js Backend Development",
+    description: "Master Express.js, REST APIs, and authentication techniques.",
+    level: "Intermediate",
+    duration: "6 weeks",
+    category: "Backend",
+    image: "/images/nodejs.png",
+  },
+  {
+    id: 5,
+    title: "UI/UX Design Principles",
+    description:
+      "Understand design systems, typography, and accessibility basics.",
+    level: "Beginner",
+    duration: "3 weeks",
+    category: "Design",
+    image: "/images/uiux.png",
+  },
+  {
+    id: 6,
+    title: "Fullstack Project with MERN",
+    description:
+      "Build and deploy a complete web app using MongoDB, Express, React, and Node.",
+    level: "Advance",
+    duration: "8 weeks",
+    category: "Fullstack",
+    image: "/images/mern.png",
+  },
 ];

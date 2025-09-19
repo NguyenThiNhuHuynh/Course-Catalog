@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
               icon="mdi:chevron-down"
               width="18"
               height="18"
-              className="text-muted-foreground hover:text-dark100_light500"
+              className="text-muted-foreground hover:text-white"
             />
           </div>
 
