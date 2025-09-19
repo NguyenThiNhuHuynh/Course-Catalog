@@ -25,7 +25,6 @@ export default function Page() {
           Browse through our curated list of courses and start learning today!
         </p>
 
-        {/* Filter buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((cat) => (
             <Button
@@ -38,7 +37,6 @@ export default function Page() {
           ))}
         </div>
 
-        {/* Course list */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCourses.map((course) => (
             <CourseCard key={course.id} course={course} />
