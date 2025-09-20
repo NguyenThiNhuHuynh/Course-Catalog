@@ -14,7 +14,7 @@ import Image from "next/image";
 import IconButton from "../shared/other/IconButton";
 import GradientButton from "../shared/other/GradientButton";
 
-const HEART_PATH =
+export const HEART_PATH =
   "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 \
    2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09 \
    C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 \
@@ -28,7 +28,7 @@ interface Props {
 
 export default function CourseCard({ course, liked, onToggleLike }: Props) {
   return (
-    <Card className="w-full border border-light400_dark500 bg-transparent rounded-4 shadow-sm hover:shadow-md transition-shadow">
+    <Card className="w-full border border-light400_dark500 bg-light100_dark200 rounded-4 shadow-sm hover:shadow-md  transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
       <CardHeader className="flex flex-col items-center gap-3">
         <div className="flex flex-row w-full items-center justify-between rounded-md">
           <Image
@@ -36,7 +36,7 @@ export default function CourseCard({ course, liked, onToggleLike }: Props) {
             alt={course.title}
             width={50}
             height={50}
-            className="object-contain"
+            className="object-contain rounded-md"
           />
           <IconButton
             svg={HEART_PATH}
@@ -45,7 +45,7 @@ export default function CourseCard({ course, liked, onToggleLike }: Props) {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col gap-3">
           <CardTitle className="text-lg font-semibold">
             {course.title}
           </CardTitle>

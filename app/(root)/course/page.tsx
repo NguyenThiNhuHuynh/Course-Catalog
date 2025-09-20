@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { courses } from "@/data/courses";
-import CourseCard from "@/components/card/CourseCard";
+import CourseCard, { HEART_PATH } from "@/components/card/CourseCard";
 import PageContainer from "@/components/container/pageContainer";
 import CourseFilter from "@/components/filter/CourseFilter";
 import { Button } from "@/components/ui/button";
@@ -73,7 +73,7 @@ export default function Page() {
         onSearch={setKeyword}
       />
 
-      <div className="w-full px-4 md:px-0 md:w-[90%] lg:w-[80%] mt-2 flex items-center justify-between">
+      <div className="w-full px-4 md:px-0 md:w-[90%] lg:w-[80%]  flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
           Showing <span className="font-medium">{filteredCourses.length}</span>{" "}
           of <span className="font-medium">{courses.length}</span> courses
@@ -83,7 +83,7 @@ export default function Page() {
           variant={showLikedOnly ? "secondary" : "default"}
           size="sm"
           onClick={() => setShowLikedOnly(!showLikedOnly)}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 font-light"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -106,13 +106,7 @@ export default function Page() {
                 <stop offset="100%" stopColor="#214e81" />
               </linearGradient>
             </defs>
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-         2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-         C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42
-         22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-              fill="url(#heartGradient)"
-            />
+            <path d={HEART_PATH} fill="url(#heartGradient)" />
           </svg>
           Favorites
         </Button>

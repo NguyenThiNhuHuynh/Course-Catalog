@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-row items-center space-x-3">
+        <div className="flex flex-row items-center space-x-4">
           <Theme />
 
           <div className="flex justify-center items-center space-x-2">
