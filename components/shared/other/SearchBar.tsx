@@ -70,7 +70,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         onKeyDown={handleKeyDown}
         disabled={disabled}
         className={clsx(
-          "flex-1 bg-transparent outline-none font-light placeholder:italic",
+          "flex-1 bg-transparent outline-none font-light text-muted-foreground placeholder:italic",
           inputClassName
         )}
       />
