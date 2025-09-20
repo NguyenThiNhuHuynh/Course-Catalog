@@ -46,7 +46,7 @@ export default function CourseFilter({
   };
 
   return (
-    <div className="w-full px-4 md:px-0 md:w-[90%] flex flex-col gap-6 lg:w-[80%]">
+    <div className="w-full px-4 md:px-0 md:w-[90%] flex flex-col gap-4 lg:w-[80%]">
       <SearchBar
         placeholder="Search course"
         size="md"
@@ -54,7 +54,7 @@ export default function CourseFilter({
         className="dark:border-none border border-light400_dark500 dark:bg-[#1B1C1E]"
       />
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         <button
           type="button"
           onClick={() => setOpenCategory(!openCategory)}
@@ -74,7 +74,7 @@ export default function CourseFilter({
               <Button
                 key={cat}
                 size="sm"
-                className="px-3 py-[6px] rounded-[20px] text-sm font-medium"
+                className="px-3 py-[6px] rounded-[20px] text-sm font-light"
                 variant={
                   selectedCategories.includes(cat) ? "secondary" : "default"
                 }
@@ -87,7 +87,7 @@ export default function CourseFilter({
         )}
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         <button
           type="button"
           onClick={() => setOpenLevel(!openLevel)}
@@ -107,7 +107,7 @@ export default function CourseFilter({
               <Button
                 key={lvl}
                 size="sm"
-                className="rounded-full"
+                className="px-3 py-[6px] rounded-[20px] text-sm font-light"
                 variant={selectedLevels.includes(lvl) ? "secondary" : "default"}
                 onClick={() => toggleLevel(lvl)}
               >

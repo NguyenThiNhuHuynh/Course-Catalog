@@ -26,7 +26,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
     >
       <span
         className="
-          flex items-center justify-center px-6 py-1.5
+          flex items-center justify-center px-5 py-1.5
           rounded-full font-medium bg-[#141416]/80
         "
       >
